@@ -53,7 +53,9 @@ layout: default
           <path d="M13 -8.74228e-08C14.1046 -3.91405e-08 15 0.895431 15 2L15 13C15 14.1046 14.1046 15 13 15L-6.55671e-07 15L-8.74228e-08 2C-3.91405e-08 0.89543 0.895431 -6.1653e-07 2 -5.68248e-07L13 -8.74228e-08Z" fill="#E61E25"/>
         </svg>
         <h3 class="mt-5 uppercase text-gray-1 font-bold text-3xl">{{ post.title }}</h3>
-        <p class="text-gray-2 italic text-sm mt-5">{{ post.info }}</p>
+        {% if post.cite and post.cite != empty %}
+          <p class="text-gray-2 italic text-sm mt-5">{{ post.cite }}</p>
+        {% endif %}
         <hr class="border-gray-3 mt-2">
         <p class="uppercase mt-14 font-bold text-lg text-gray-1">Abstract</p>
         <div class="mt-7 relative">

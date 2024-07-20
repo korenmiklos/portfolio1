@@ -1,7 +1,7 @@
 ---
 title: Business disruptions from social distancing.
 description: 
-info: Koren, Miklós, and Rita Pető, PLoS ONE. 15(9), pp. e0239113.
+cite: Koren, Miklós, and Rita Pető, PLoS ONE. 15(9), pp. e0239113.
 date: 2024-05-26
 ---
 
