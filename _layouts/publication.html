@@ -5,7 +5,7 @@ layout: default
 <div class="mx-auto max-w-7xl px-6 lg:px-8 py-11 lg:pt-14 lg:pb-32">
   <div class="flex flex-col lg:flex-row gap-16 lg:gap-20 xl:gap-40">
     <div class="flex-1">
-      <a href="{{ post.url | relative_url }}" class="text-red inline-block">&larr; Back to publications</a>
+      <a href="{{ '/' | relative_url }}" class="text-red inline-block">&larr; Back to publications</a>
       <h1 class="text-5xl lg:text-6xl text-blue font-bold leading-[1.15] mt-7">{{ page.title }}</h1>
       <time datetime="{{ page.date | date_to_xmlschema }}" class="text-gray-2 mt-1">
         {% assign date_format = site.date_format | default: "%B %Y" %}
