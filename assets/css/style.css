@@ -1454,6 +1454,11 @@ select {
   margin-right: auto;
 }
 
+.my-12 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
 .-mt-1 {
   margin-top: -0.25rem;
 }
@@ -1725,6 +1730,18 @@ select {
   max-width: 20rem;
 }
 
+.max-w-\[43\.75rem\] {
+  max-width: 43.75rem;
+}
+
+.max-w-\[45rem\] {
+  max-width: 45rem;
+}
+
+.max-w-\[44rem\] {
+  max-width: 44rem;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -1841,6 +1858,10 @@ select {
 
 .gap-16 {
   gap: 4rem;
+}
+
+.gap-5 {
+  gap: 1.25rem;
 }
 
 .gap-x-8 {
@@ -2314,6 +2335,10 @@ select {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.font-normal {
+  font-weight: 400;
 }
 
 .uppercase {
@@ -2845,6 +2870,22 @@ select {
     margin-top: 1.25rem;
   }
 
+  .lg\:mt-10 {
+    margin-top: 2.5rem;
+  }
+
+  .lg\:mt-24 {
+    margin-top: 6rem;
+  }
+
+  .lg\:mt-36 {
+    margin-top: 9rem;
+  }
+
+  .lg\:mt-48 {
+    margin-top: 12rem;
+  }
+
   .lg\:block {
     display: block;
   }
@@ -2875,6 +2916,14 @@ select {
 
   .lg\:w-\[30\%\] {
     width: 30%;
+  }
+
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .lg\:flex-row {
