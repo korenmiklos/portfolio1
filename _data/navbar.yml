@@ -1,10 +1,12 @@
 ---
 - text: Publications
   url: "/publications/"
-- text: About me
-  url: "/about-me/"
+- text: CV
+  url: "/cv/"
 - text: More
   dropdown:
+  - text: Project
+    url: "/project/"
   - text: Courses
     url: "#"
   - text: Softwares

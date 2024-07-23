@@ -3,9 +3,7 @@ layout: default
 ---
 
 <div class="mx-auto max-w-7xl px-6 lg:px-8 py-11 lg:pt-14 lg:pb-32">
-  <a href="{{ '/' | relative_url }}" class="text-red inline-block">&larr; Back to Read {{ page.title }}</a>
-
-  <div class="mx-auto max-w-[44rem] text-center mt-16 lg:mt-10">
+  <div class="mx-auto max-w-[44rem] text-center">
     <h1 class="text-5xl lg:text-6xl text-blue font-bold leading-[1.15]">{{ page.title }}</h1>
     <time datetime="{{ page.date | date_to_xmlschema }}" class="text-gray-2 mt-2">
       {% assign date_format = site.date_format | default: "%B %Y" %}
@@ -13,8 +11,9 @@ layout: default
     </time>
     <h3 class="text-blue font-normal mt-8 lg:mt-20">Made possible by</h3>
     <div class="gap-7 grid lg:grid-cols-2 mt-12">
-      <img class="h-full" src="{{ '/uploads/sponsor-1.png' | absolute_url }}" alt="Lorem">
-      <img class="h-full" src="{{ '/uploads/sponsor-2.png' | absolute_url }}" alt="Lorem">
+      {% for item in page.sponsors %}
+        <img class="w-full" src="{{ item | absolute_url }}" alt="Sponsor">
+      {% endfor %}
     </div>
     <div class="mt-14 lg:mt-16 prose max-w-none prose-slate prose-headings:font-bold prose-a:text-red hover:prose-a:text-red">
       {{ content }}
@@ -25,77 +24,53 @@ layout: default
     <h3 class="text-blue uppercase font-bold text-3xl text-center">Project team</h3>
     <h4 class="font-normal text-blue mt-12">Authors</h4>
     <div class="gap-5 grid lg:grid-cols-3 mt-7">
-      <div class="flex space-x-5 items-center">
-        <img class="rounded w-24 h-auto" src="{{ '/uploads/member.jpg' | absolute_url }}" alt="Lorem">
-        <div>
-          <h4 class="font-bold text-lg text-red">Team Member</h4>
-          <p class="text-gray-2">Academic Title</p>
-        </div>
-      </div>
-      <div class="flex space-x-5 items-center">
-        <img class="rounded w-24 h-auto" src="{{ '/uploads/member.jpg' | absolute_url }}" alt="Lorem">
-        <div>
-          <h4 class="font-bold text-lg text-red">Team Member</h4>
-          <p class="text-gray-2">Academic Title</p>
-        </div>
-      </div>
-      <div class="flex space-x-5 items-center">
-        <img class="rounded w-24 h-auto" src="{{ '/uploads/member.jpg' | absolute_url }}" alt="Lorem">
-        <div>
-          <h4 class="font-bold text-lg text-red">Team Member</h4>
-          <p class="text-gray-2">Academic Title</p>
-        </div>
-      </div>
+      {% for person in page.authors %}
+        {% for item in site.data.team %}
+          {% if item.username == person %}
+            <div class="flex space-x-5 items-center">
+              <img class="rounded w-24 h-auto" src="{{ item.image | absolute_url }}" alt="Lorem">
+              <div>
+                <h4 class="font-bold text-lg text-red">{{ item.name }}</h4>
+                <p class="text-gray-2">{{ item.title }}</p>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
     </div>    
     <hr class="my-12 border-gray-3">
     <h4 class="font-normal text-blue mt-12">Co-Authors</h4>
     <div class="gap-5 grid lg:grid-cols-3 mt-7">
-      <div class="flex space-x-5 items-center">
-        <img class="rounded w-24 h-auto" src="{{ '/uploads/member.jpg' | absolute_url }}" alt="Lorem">
-        <div>
-          <h4 class="font-bold text-lg text-red">Team Member</h4>
-          <p class="text-gray-2">Academic Title</p>
-        </div>
-      </div>
-      <div class="flex space-x-5 items-center">
-        <img class="rounded w-24 h-auto" src="{{ '/uploads/member.jpg' | absolute_url }}" alt="Lorem">
-        <div>
-          <h4 class="font-bold text-lg text-red">Team Member</h4>
-          <p class="text-gray-2">Academic Title</p>
-        </div>
-      </div>
-      <div class="flex space-x-5 items-center">
-        <img class="rounded w-24 h-auto" src="{{ '/uploads/member.jpg' | absolute_url }}" alt="Lorem">
-        <div>
-          <h4 class="font-bold text-lg text-red">Team Member</h4>
-          <p class="text-gray-2">Academic Title</p>
-        </div>
-      </div>
+      {% for person in page.coauthors %}
+        {% for item in site.data.team %}
+          {% if item.username == person %}
+            <div class="flex space-x-5 items-center">
+              <img class="rounded w-24 h-auto" src="{{ item.image | absolute_url }}" alt="Lorem">
+              <div>
+                <h4 class="font-bold text-lg text-red">{{ item.name }}</h4>
+                <p class="text-gray-2">{{ item.title }}</p>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
     </div>    
     <hr class="my-12 border-gray-3">
     <h4 class="font-normal text-blue mt-12">Team Members</h4>
     <div class="gap-5 grid lg:grid-cols-3 mt-7">
-      <div class="flex space-x-5 items-center">
-        <img class="rounded w-24 h-auto" src="{{ '/uploads/member.jpg' | absolute_url }}" alt="Lorem">
-        <div>
-          <h4 class="font-bold text-lg text-red">Team Member</h4>
-          <p class="text-gray-2">Academic Title</p>
-        </div>
-      </div>
-      <div class="flex space-x-5 items-center">
-        <img class="rounded w-24 h-auto" src="{{ '/uploads/member.jpg' | absolute_url }}" alt="Lorem">
-        <div>
-          <h4 class="font-bold text-lg text-red">Team Member</h4>
-          <p class="text-gray-2">Academic Title</p>
-        </div>
-      </div>
-      <div class="flex space-x-5 items-center">
-        <img class="rounded w-24 h-auto" src="{{ '/uploads/member.jpg' | absolute_url }}" alt="Lorem">
-        <div>
-          <h4 class="font-bold text-lg text-red">Team Member</h4>
-          <p class="text-gray-2">Academic Title</p>
-        </div>
-      </div>
+      {% for person in page.team %}
+        {% for item in site.data.team %}
+          {% if item.username == person %}
+            <div class="flex space-x-5 items-center">
+              <img class="rounded w-24 h-auto" src="{{ item.image | absolute_url }}" alt="Lorem">
+              <div>
+                <h4 class="font-bold text-lg text-red">{{ item.name }}</h4>
+                <p class="text-gray-2">{{ item.title }}</p>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
     </div>    
   </div>
 

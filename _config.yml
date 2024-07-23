@@ -47,6 +47,12 @@ collections:
   publications:
     output: true
     permalink: /:name
+  courses:
+    output: true
+    permalink: /:name
+  blog:
+    output: true
+    permalink: /:name
 
 # Defaults
 defaults:
@@ -55,3 +61,13 @@ defaults:
       type: publications
     values:
       layout: publication
+  - scope:
+      path: ""
+      type: courses
+    values:
+      layout: course
+  - scope:
+      path: ""
+      type: blog
+    values:
+      layout: post

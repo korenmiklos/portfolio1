@@ -13,8 +13,8 @@ about:
   image: /uploads/miklos-koren.jpg
   link:
     text: Read CV
-    url: /about-me/
-    
+    url: /cv/
+
 blocks:
 - block: cards
   cards:
