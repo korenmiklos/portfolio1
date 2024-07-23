@@ -6,6 +6,8 @@ image: /uploads/course.jpg
 tags:
 - top
 - featured
+categories:
+- ipsum
 ---
 
 This course has been developed with support from a Teaching Development Grant of CEU.

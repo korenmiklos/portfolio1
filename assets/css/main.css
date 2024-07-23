@@ -29,3 +29,13 @@
   }  
 }
 
+.swiper-pagination {
+  @apply flex justify-center space-x-1.5;
+}
+.swiper-pagination-bullet {
+  @apply w-2.5 h-2.5 bg-gray-3;
+}
+.swiper-pagination-bullet-active {
+  @apply bg-red w-7;
+}
+
