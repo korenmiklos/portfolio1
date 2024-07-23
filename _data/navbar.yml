@@ -8,9 +8,9 @@
   - text: Project
     url: "/project/"
   - text: Courses
-    url: "#"
-  - text: Softwares
-    url: "#"
+    url: "/courses/"
+  - text: Software
+    url: "/software/"
   - text: Blog
     url: "#"
   - text: Codedthinking Story

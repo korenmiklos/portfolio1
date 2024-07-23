@@ -4,6 +4,7 @@
   "description": "Jekyll & Tailwind CSS 3.0",
   "main": "index.js",
   "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "latest",
     "@tailwindcss/typography": "latest",
     "autoprefixer": "latest",
