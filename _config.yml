@@ -53,6 +53,8 @@ collections:
   blog:
     output: true
     permalink: /:name
+  software:
+    output: false
 
 # Defaults
 defaults:
