@@ -7,6 +7,7 @@ categories:
 code: |-
     assert estimate1.coefficient.similar(estimate2.coefficient)
     assert estimate1.coefficient.significant() == estimate2.coefficient.significant()
+download_url: "#"
 ---
 
 This course has been developed with support from a Teaching Development Grant of CEU.
