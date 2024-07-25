@@ -18,6 +18,8 @@ copyright: "&copy; 2023 Coded Thinking OÜ"
 
 google_analytics: 
 
+search: courses # options: blog | courses | publications
+
 markdown: kramdown
 highlighter: rouge
 

@@ -8,6 +8,16 @@ tags:
 - featured
 categories:
 - ipsum
+author: john
+links:
+- text: Full text (open access, HTML)
+  url: "#"
+- text: Full text (open access, PDF)
+  url: "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0239113&type=printable"
+- text: VoxEU column
+  url: "#"
+- text: Replication code and data
+  url: "#"
 ---
 
 This course has been developed with support from a Teaching Development Grant of CEU.

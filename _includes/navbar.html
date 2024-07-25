@@ -167,6 +167,7 @@
     </div>
   </div>
 </header>
+{% assign filename = "search-" | append: site.search | append: ".json" %}
 <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
 <script>
 	window.simpleJekyllSearch = new SimpleJekyllSearch({
@@ -174,7 +175,7 @@
 		resultsContainer: document.getElementById('results-container'),
 		searchResultTemplate: '<li><a class="py-2 block leading-tight hover:text-red" href="{url}">{title}</a></li>',
 		noResultsText: '<li class="no-results py-3">{{ site.data.translation[site.lang].no_results | default: 'No results found' }}</li>',
-		json: "{{ '/search-publications.json' | relative_url }}"
+		json: "{{ filename | relative_url }}"
 	});
 	
 	searchResults();
