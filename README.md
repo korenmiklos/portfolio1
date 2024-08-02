@@ -12,3 +12,6 @@ Install dependencies:
 
 To start developing: 
 `npm run dev`
+
+Child theme run:
+`bundle exec jekyll s`

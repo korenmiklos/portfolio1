@@ -1,5 +1,5 @@
 ---
-layout: publications
+layout: home-publications
 title: 
 
 hero:
@@ -10,7 +10,7 @@ hero:
 about:
   name: Miklós Koren
   copy: A little introduction what the reader can find here lorem ipsum dolor sit amet consectetur adipiscing elit tortor eu egestas morbi sem vulputate etiam facilisis.
-  image: /uploads/miklos-koren.jpg
+  image: /assets/images/miklos-koren.jpg
   link:
     text: Read CV
     url: /cv/

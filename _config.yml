@@ -4,27 +4,20 @@ description: Lorem ipsum dolorem
 url: 
 baseurl: 
 lang: en
-logo: /uploads/koren-mk.svg
-logo_mark: /uploads/logo-mark.svg
 permalink: "/:title/"
 
-social:
-  facebook: "#"
-  twitter: "#"
-  instagram: "#"
-  linkedin: "#"
+remote_theme: korenmiklos/remote-theme
 
-copyright: "&copy; 2023 Coded Thinking OÜ"
+website: publications # options: blog | courses | publications
 
 google_analytics: 
-
-search: courses # options: blog | courses | publications
 
 markdown: kramdown
 highlighter: rouge
 
 plugins:
 - jekyll-seo-tag
+- jekyll-remote-theme
 
 exclude:
 - vendor
@@ -48,14 +41,10 @@ livereload: true
 collections:
   publications:
     output: true
-    permalink: /:name
+    permalink: /:collection/:name
   courses:
-    output: true
-    permalink: /:name
-  blog:
-    output: true
-    permalink: /:name
-  software:
+    output: false
+  posts:
     output: false
 
 # Defaults
@@ -65,13 +54,3 @@ defaults:
       type: publications
     values:
       layout: publication
-  - scope:
-      path: ""
-      type: courses
-    values:
-      layout: course
-  - scope:
-      path: ""
-      type: blog
-    values:
-      layout: post
