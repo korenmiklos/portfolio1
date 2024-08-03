@@ -37,6 +37,9 @@ jobs:
             cp -R "temp-data/$item" .
           done
 
+      - name: Remove temp-data folder
+        run: rm -rf temp-data
+
       - name: Commit and push changes
         run: |
           git config user.name github-actions
