@@ -5,22 +5,36 @@ on:
   repository_dispatch:
     types: [update-from-data]
 
+permissions:
+  contents: write
+
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout portfolio repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Checkout data repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: korenmiklos/remote-theme
           path: temp-data
+          ref: main
+          fetch-depth: 1
 
       - name: Update files from data repository
+        shell: bash
         run: |
-          # List of files and folders to manage
+          set -euo pipefail
+
+          echo "Portfolio HEAD: $(git rev-parse HEAD)"
+          echo "Data HEAD: $(cd temp-data && git rev-parse HEAD)"
+          echo "Data top-level:"
+          ls -la temp-data
+
           files_to_manage=(
             "_courses"
             "_data"
@@ -30,35 +44,48 @@ jobs:
             "index.md"
             "project.md"
             "search-publications.json"
-            # Add more files or folders as needed
           )
 
-          # Remove existing items using git rm
+          missing=0
+          for item in "${files_to_manage[@]}"; do
+            if [ ! -e "temp-data/$item" ]; then
+              echo "MISSING in temp-data: $item"
+              missing=1
+            fi
+          done
+          if [ "$missing" -eq 1 ]; then
+            echo "Aborting: expected items missing from data repo checkout."
+            exit 1
+          fi
+
           for item in "${files_to_manage[@]}"; do
             if [ -e "$item" ]; then
               git rm -r "$item"
-              echo "Removed $item from Git tracking"
             fi
           done
 
-          # Copy items from temp-data
           for item in "${files_to_manage[@]}"; do
-            if [ -e "temp-data/$item" ]; then
-              cp -R "temp-data/$item" .
-              git add "$item"
-              echo "Copied and staged $item"
-            else
-              echo "Warning: $item not found in temp-data"
-            fi
+            cp -R "temp-data/$item" .
+            git add "$item"
           done
-          
-      - name: Remove temp-data folder
-        run: rm -rf temp-data
+
+          rm -rf temp-data
+
+          echo "Status after sync:"
+          git status --porcelain
+          echo "Diff stat:"
+          git diff --stat
 
       - name: Commit and push changes
+        shell: bash
         run: |
+          set -euo pipefail
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add .
-          git commit -m "Update from data repository" || echo "No changes to commit"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Update from data repository"
           git push
